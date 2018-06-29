@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		302E42AA20E6387500C3ADCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42A920E6387500C3ADCF /* AppDelegate.m */; };
+		302E42AD20E6387500C3ADCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42AC20E6387500C3ADCF /* ViewController.m */; };
+		302E42B020E6387500C3ADCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302E42AE20E6387500C3ADCF /* Main.storyboard */; };
+		302E42B220E6387600C3ADCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302E42B120E6387600C3ADCF /* Assets.xcassets */; };
+		302E42B520E6387600C3ADCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302E42B320E6387600C3ADCF /* LaunchScreen.storyboard */; };
+		302E42B820E6387600C3ADCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42B720E6387600C3ADCF /* main.m */; };
+		302E42C220E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42C120E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m */; };
+		302E42CD20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42CC20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		302E42BE20E6387600C3ADCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 302E429D20E6387500C3ADCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302E42A420E6387500C3ADCF;
+			remoteInfo = FJFKeyboardHelperDemo;
+		};
+		302E42C920E6387600C3ADCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 302E429D20E6387500C3ADCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302E42A420E6387500C3ADCF;
+			remoteInfo = FJFKeyboardHelperDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		302E42A520E6387500C3ADCF /* FJFKeyboardHelperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FJFKeyboardHelperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		302E42A820E6387500C3ADCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		302E42A920E6387500C3ADCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		302E42AB20E6387500C3ADCF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		302E42AC20E6387500C3ADCF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		302E42AF20E6387500C3ADCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		302E42B120E6387600C3ADCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		302E42B420E6387600C3ADCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		302E42B620E6387600C3ADCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		302E42B720E6387600C3ADCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		302E42BD20E6387600C3ADCF /* FJFKeyboardHelperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJFKeyboardHelperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		302E42C120E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJFKeyboardHelperDemoTests.m; sourceTree = "<group>"; };
+		302E42C320E6387600C3ADCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		302E42C820E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJFKeyboardHelperDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		302E42CC20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJFKeyboardHelperDemoUITests.m; sourceTree = "<group>"; };
+		302E42CE20E6387600C3ADCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		302E42A220E6387500C3ADCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42BA20E6387600C3ADCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42C520E6387600C3ADCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		302E429C20E6387500C3ADCF = {
+			isa = PBXGroup;
+			children = (
+				302E42A720E6387500C3ADCF /* FJFKeyboardHelperDemo */,
+				302E42C020E6387600C3ADCF /* FJFKeyboardHelperDemoTests */,
+				302E42CB20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests */,
+				302E42A620E6387500C3ADCF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		302E42A620E6387500C3ADCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				302E42A520E6387500C3ADCF /* FJFKeyboardHelperDemo.app */,
+				302E42BD20E6387600C3ADCF /* FJFKeyboardHelperDemoTests.xctest */,
+				302E42C820E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		302E42A720E6387500C3ADCF /* FJFKeyboardHelperDemo */ = {
+			isa = PBXGroup;
+			children = (
+				302E42A820E6387500C3ADCF /* AppDelegate.h */,
+				302E42A920E6387500C3ADCF /* AppDelegate.m */,
+				302E42AB20E6387500C3ADCF /* ViewController.h */,
+				302E42AC20E6387500C3ADCF /* ViewController.m */,
+				302E42AE20E6387500C3ADCF /* Main.storyboard */,
+				302E42B120E6387600C3ADCF /* Assets.xcassets */,
+				302E42B320E6387600C3ADCF /* LaunchScreen.storyboard */,
+				302E42B620E6387600C3ADCF /* Info.plist */,
+				302E42B720E6387600C3ADCF /* main.m */,
+			);
+			path = FJFKeyboardHelperDemo;
+			sourceTree = "<group>";
+		};
+		302E42C020E6387600C3ADCF /* FJFKeyboardHelperDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				302E42C120E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m */,
+				302E42C320E6387600C3ADCF /* Info.plist */,
+			);
+			path = FJFKeyboardHelperDemoTests;
+			sourceTree = "<group>";
+		};
+		302E42CB20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				302E42CC20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m */,
+				302E42CE20E6387600C3ADCF /* Info.plist */,
+			);
+			path = FJFKeyboardHelperDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		302E42A420E6387500C3ADCF /* FJFKeyboardHelperDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 302E42D120E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemo" */;
+			buildPhases = (
+				302E42A120E6387500C3ADCF /* Sources */,
+				302E42A220E6387500C3ADCF /* Frameworks */,
+				302E42A320E6387500C3ADCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FJFKeyboardHelperDemo;
+			productName = FJFKeyboardHelperDemo;
+			productReference = 302E42A520E6387500C3ADCF /* FJFKeyboardHelperDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		302E42BC20E6387600C3ADCF /* FJFKeyboardHelperDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 302E42D420E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemoTests" */;
+			buildPhases = (
+				302E42B920E6387600C3ADCF /* Sources */,
+				302E42BA20E6387600C3ADCF /* Frameworks */,
+				302E42BB20E6387600C3ADCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				302E42BF20E6387600C3ADCF /* PBXTargetDependency */,
+			);
+			name = FJFKeyboardHelperDemoTests;
+			productName = FJFKeyboardHelperDemoTests;
+			productReference = 302E42BD20E6387600C3ADCF /* FJFKeyboardHelperDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		302E42C720E6387600C3ADCF /* FJFKeyboardHelperDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 302E42D720E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemoUITests" */;
+			buildPhases = (
+				302E42C420E6387600C3ADCF /* Sources */,
+				302E42C520E6387600C3ADCF /* Frameworks */,
+				302E42C620E6387600C3ADCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				302E42CA20E6387600C3ADCF /* PBXTargetDependency */,
+			);
+			name = FJFKeyboardHelperDemoUITests;
+			productName = FJFKeyboardHelperDemoUITests;
+			productReference = 302E42C820E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		302E429D20E6387500C3ADCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = fjf;
+				TargetAttributes = {
+					302E42A420E6387500C3ADCF = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					302E42BC20E6387600C3ADCF = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 302E42A420E6387500C3ADCF;
+					};
+					302E42C720E6387600C3ADCF = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 302E42A420E6387500C3ADCF;
+					};
+				};
+			};
+			buildConfigurationList = 302E42A020E6387500C3ADCF /* Build configuration list for PBXProject "FJFKeyboardHelperDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 302E429C20E6387500C3ADCF;
+			productRefGroup = 302E42A620E6387500C3ADCF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				302E42A420E6387500C3ADCF /* FJFKeyboardHelperDemo */,
+				302E42BC20E6387600C3ADCF /* FJFKeyboardHelperDemoTests */,
+				302E42C720E6387600C3ADCF /* FJFKeyboardHelperDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		302E42A320E6387500C3ADCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				302E42B520E6387600C3ADCF /* LaunchScreen.storyboard in Resources */,
+				302E42B220E6387600C3ADCF /* Assets.xcassets in Resources */,
+				302E42B020E6387500C3ADCF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42BB20E6387600C3ADCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42C620E6387600C3ADCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		302E42A120E6387500C3ADCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				302E42AD20E6387500C3ADCF /* ViewController.m in Sources */,
+				302E42B820E6387600C3ADCF /* main.m in Sources */,
+				302E42AA20E6387500C3ADCF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42B920E6387600C3ADCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				302E42C220E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		302E42C420E6387600C3ADCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				302E42CD20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		302E42BF20E6387600C3ADCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302E42A420E6387500C3ADCF /* FJFKeyboardHelperDemo */;
+			targetProxy = 302E42BE20E6387600C3ADCF /* PBXContainerItemProxy */;
+		};
+		302E42CA20E6387600C3ADCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302E42A420E6387500C3ADCF /* FJFKeyboardHelperDemo */;
+			targetProxy = 302E42C920E6387600C3ADCF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		302E42AE20E6387500C3ADCF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				302E42AF20E6387500C3ADCF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		302E42B320E6387600C3ADCF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				302E42B420E6387600C3ADCF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		302E42CF20E6387600C3ADCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		302E42D020E6387600C3ADCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		302E42D220E6387600C3ADCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		302E42D320E6387600C3ADCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		302E42D520E6387600C3ADCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FJFKeyboardHelperDemo.app/FJFKeyboardHelperDemo";
+			};
+			name = Debug;
+		};
+		302E42D620E6387600C3ADCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FJFKeyboardHelperDemo.app/FJFKeyboardHelperDemo";
+			};
+			name = Release;
+		};
+		302E42D820E6387600C3ADCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FJFKeyboardHelperDemo;
+			};
+			name = Debug;
+		};
+		302E42D920E6387600C3ADCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PB2XYK7EA;
+				INFOPLIST_FILE = FJFKeyboardHelperDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FJF.FJFKeyboardHelperDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FJFKeyboardHelperDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		302E42A020E6387500C3ADCF /* Build configuration list for PBXProject "FJFKeyboardHelperDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				302E42CF20E6387600C3ADCF /* Debug */,
+				302E42D020E6387600C3ADCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		302E42D120E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				302E42D220E6387600C3ADCF /* Debug */,
+				302E42D320E6387600C3ADCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		302E42D420E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				302E42D520E6387600C3ADCF /* Debug */,
+				302E42D620E6387600C3ADCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		302E42D720E6387600C3ADCF /* Build configuration list for PBXNativeTarget "FJFKeyboardHelperDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				302E42D820E6387600C3ADCF /* Debug */,
+				302E42D920E6387600C3ADCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 302E429D20E6387500C3ADCF /* Project object */;
+}

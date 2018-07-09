@@ -10,5 +10,5 @@
 
 @interface UIViewController (FJFKeyboardCurrentViewController)
 // 获取 当前 viewController
-+ (UIViewController *)moa_keyboardCurrentViewController;
++ (UIViewController *)fjf_keyboardCurrentViewController;
 @end

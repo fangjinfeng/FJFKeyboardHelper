@@ -6,7 +6,7 @@
 //  Copyright © 2018年 youngsoft. All rights reserved.
 //
 // tool
-#import "MOAKeyboardHelper.h"
+#import "FJFKeyboardHelper.h"
 // cell
 #import "FJFTextfieldCell.h"
 // vc
@@ -49,7 +49,7 @@
 - (void)setupViewControls {
     [self.view addSubview:self.tableView];
     
-    [MOAKeyboardHelper handleKeyboardWithScrollView:self.tableView];
+    [FJFKeyboardHelper handleKeyboardWithScrollView:self.tableView];
 }
 
 #pragma mark -------------------------- Getter / Setter

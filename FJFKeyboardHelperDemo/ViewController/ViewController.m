@@ -98,6 +98,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [UITableView moa_plainTableView];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

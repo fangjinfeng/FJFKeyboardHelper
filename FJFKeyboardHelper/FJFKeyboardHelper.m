@@ -8,9 +8,9 @@
 //
 
 #import "FJFKeyboardHelper.h"
-#import "UIView+KeyboardHelper.h"
-#import "UIResponder+FirstResponder.h"
-#import "UIViewController+KeyboardCurrentViewController.h"
+#import "UIView+FJFKeyboardHelper.h"
+#import "UIResponder+FJFKeyboardFirstResponder.h"
+#import "UIViewController+FJFKeyboardCurrentViewController.h"
 
 @interface FJFKeyboardHelper()
 // containerView
@@ -47,21 +47,21 @@
 + (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithShowBlock:showBlock hideBlock:hideBlock];
-    [[UIViewController moa_keyboardCurrentViewController].view moa_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
 }
 
 
 + (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithScrollView:scrollView];
-    [[UIViewController moa_keyboardCurrentViewController].view moa_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
 }
 
 
 + (void)handleKeyboardWithContainerView:(UIView *)containerView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithContainerView:containerView];
-    [[UIViewController moa_keyboardCurrentViewController].view moa_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
 }
 
 #pragma mark -------------------------- Private Methods
@@ -124,7 +124,7 @@
             }
             // 无回调
             else {
-                UIView *tmpView = [UIResponder moa_currentFirstResponder];
+                UIView *tmpView = [UIResponder fjf_currentFirstResponder];
                 if ([tmpView isKindOfClass:[UIView class]]) {
                     UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
                     CGRect rect = [tmpView convertRect:tmpView.bounds toView:window];

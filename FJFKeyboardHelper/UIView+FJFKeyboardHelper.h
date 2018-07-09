@@ -10,5 +10,5 @@
 
 @class FJFKeyboardHelper;
 @interface UIView (FJFKeyboardHelper)
-- (void)moa_setkeyboardHelper:(FJFKeyboardHelper *)keyboardHelper;
+- (void)fjf_setkeyboardHelper:(FJFKeyboardHelper *)keyboardHelper;
 @end

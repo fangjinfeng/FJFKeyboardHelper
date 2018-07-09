@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  FJFKeyboardHelperDemo
+//  YSTextInputKeyboardCategory
 //
-//  Created by fjf on 2018/6/29.
-//  Copyright © 2018年 fjf. All rights reserved.
+//  Created by apple on 16/1/7.
+//  Copyright (c) 2016年 youngsoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

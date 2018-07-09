@@ -6,18 +6,18 @@
 //  Copyright © 2018年 fjf. All rights reserved.
 //
 
-#import "UIResponder+FirstResponder.h"
+#import "UIResponder+FJFKeyboardFirstResponder.h"
 
 static __weak id currentFirstResponder;
 
 @implementation UIResponder (FJFKeyboardFirstResponder)
-+ (id)moa_currentFirstResponder {
++ (id)fjf_currentFirstResponder {
     currentFirstResponder = nil;
-    [[UIApplication sharedApplication] sendAction:@selector(moa_findFirstResponder:) to:nil from:nil forEvent:nil];
+    [[UIApplication sharedApplication] sendAction:@selector(fjf_findFirstResponder:) to:nil from:nil forEvent:nil];
     return currentFirstResponder;
 }
 
-- (void)moa_findFirstResponder:(id)sender {
+- (void)fjf_findFirstResponder:(id)sender {
     currentFirstResponder = self;
 }
 @end

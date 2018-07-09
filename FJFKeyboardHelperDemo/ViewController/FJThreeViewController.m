@@ -7,7 +7,7 @@
 //
 
 // tool
-#import "MOAKeyboardHelper.h"
+#import "FJFKeyboardHelper.h"
 #import "FJThreeViewController.h"
 
 @interface FJThreeViewController ()
@@ -24,7 +24,7 @@
     self.tableView.delegate = self;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     // 键盘 管理
-    [MOAKeyboardHelper handleKeyboardWithContainerView:self.view];
+    [FJFKeyboardHelper handleKeyboardWithContainerView:self.view];
 }
 
 #pragma mark -------------------------- Response  Event

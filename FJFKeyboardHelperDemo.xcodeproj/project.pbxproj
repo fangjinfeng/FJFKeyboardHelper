@@ -15,6 +15,17 @@
 		302E42B820E6387600C3ADCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42B720E6387600C3ADCF /* main.m */; };
 		302E42C220E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42C120E6387600C3ADCF /* FJFKeyboardHelperDemoTests.m */; };
 		302E42CD20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42CC20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m */; };
+		302E42E320E6388F00C3ADCF /* FJFKeyboardHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42DC20E6388F00C3ADCF /* FJFKeyboardHelper.m */; };
+		302E42E420E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42DE20E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.m */; };
+		302E42E520E6388F00C3ADCF /* UIView+FJFKeyboardHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42E020E6388F00C3ADCF /* UIView+FJFKeyboardHelper.m */; };
+		302E42E620E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42E220E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m */; };
+		302E42EC20E6389C00C3ADCF /* UITableView+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42E920E6389C00C3ADCF /* UITableView+Creation.m */; };
+		302E42ED20E6389C00C3ADCF /* UITableViewCell+Creation.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42EB20E6389C00C3ADCF /* UITableViewCell+Creation.m */; };
+		302E42F720E638AB00C3ADCF /* FJThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302E42EF20E638A900C3ADCF /* FJThreeViewController.xib */; };
+		302E42F820E638AB00C3ADCF /* FJSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F020E638A900C3ADCF /* FJSecondViewController.m */; };
+		302E42F920E638AB00C3ADCF /* FJFTextfieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F120E638AA00C3ADCF /* FJFTextfieldCell.m */; };
+		302E42FA20E638AB00C3ADCF /* FJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F220E638AA00C3ADCF /* FJFirstViewController.m */; };
+		302E42FB20E638AB00C3ADCF /* FJThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F620E638AA00C3ADCF /* FJThreeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,27 @@
 		302E42C820E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FJFKeyboardHelperDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302E42CC20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJFKeyboardHelperDemoUITests.m; sourceTree = "<group>"; };
 		302E42CE20E6387600C3ADCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		302E42DB20E6388F00C3ADCF /* FJFKeyboardHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFKeyboardHelper.h; sourceTree = "<group>"; };
+		302E42DC20E6388F00C3ADCF /* FJFKeyboardHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJFKeyboardHelper.m; sourceTree = "<group>"; };
+		302E42DD20E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FJFKeyboardFirstResponder.h"; sourceTree = "<group>"; };
+		302E42DE20E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FJFKeyboardFirstResponder.m"; sourceTree = "<group>"; };
+		302E42DF20E6388F00C3ADCF /* UIView+FJFKeyboardHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FJFKeyboardHelper.h"; sourceTree = "<group>"; };
+		302E42E020E6388F00C3ADCF /* UIView+FJFKeyboardHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FJFKeyboardHelper.m"; sourceTree = "<group>"; };
+		302E42E120E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FJFKeyboardCurrentViewController.h"; sourceTree = "<group>"; };
+		302E42E220E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FJFKeyboardCurrentViewController.m"; sourceTree = "<group>"; };
+		302E42E820E6389C00C3ADCF /* UITableView+Creation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Creation.h"; sourceTree = "<group>"; };
+		302E42E920E6389C00C3ADCF /* UITableView+Creation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Creation.m"; sourceTree = "<group>"; };
+		302E42EA20E6389C00C3ADCF /* UITableViewCell+Creation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Creation.h"; sourceTree = "<group>"; };
+		302E42EB20E6389C00C3ADCF /* UITableViewCell+Creation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Creation.m"; sourceTree = "<group>"; };
+		302E42EE20E638A900C3ADCF /* FJFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFirstViewController.h; sourceTree = "<group>"; };
+		302E42EF20E638A900C3ADCF /* FJThreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FJThreeViewController.xib; sourceTree = "<group>"; };
+		302E42F020E638A900C3ADCF /* FJSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSecondViewController.m; sourceTree = "<group>"; };
+		302E42F120E638AA00C3ADCF /* FJFTextfieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJFTextfieldCell.m; sourceTree = "<group>"; };
+		302E42F220E638AA00C3ADCF /* FJFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJFirstViewController.m; sourceTree = "<group>"; };
+		302E42F320E638AA00C3ADCF /* FJSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSecondViewController.h; sourceTree = "<group>"; };
+		302E42F420E638AA00C3ADCF /* FJThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThreeViewController.h; sourceTree = "<group>"; };
+		302E42F520E638AA00C3ADCF /* FJFTextfieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFTextfieldCell.h; sourceTree = "<group>"; };
+		302E42F620E638AA00C3ADCF /* FJThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJThreeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +113,7 @@
 		302E429C20E6387500C3ADCF = {
 			isa = PBXGroup;
 			children = (
+				302E42DA20E6388F00C3ADCF /* FJFKeyboardHelper */,
 				302E42A720E6387500C3ADCF /* FJFKeyboardHelperDemo */,
 				302E42C020E6387600C3ADCF /* FJFKeyboardHelperDemoTests */,
 				302E42CB20E6387600C3ADCF /* FJFKeyboardHelperDemoUITests */,
@@ -101,10 +134,11 @@
 		302E42A720E6387500C3ADCF /* FJFKeyboardHelperDemo */ = {
 			isa = PBXGroup;
 			children = (
+				302E42FD20E6397000C3ADCF /* View */,
+				302E42FC20E6395500C3ADCF /* ViewController */,
+				302E42E720E6389C00C3ADCF /* Category */,
 				302E42A820E6387500C3ADCF /* AppDelegate.h */,
 				302E42A920E6387500C3ADCF /* AppDelegate.m */,
-				302E42AB20E6387500C3ADCF /* ViewController.h */,
-				302E42AC20E6387500C3ADCF /* ViewController.m */,
 				302E42AE20E6387500C3ADCF /* Main.storyboard */,
 				302E42B120E6387600C3ADCF /* Assets.xcassets */,
 				302E42B320E6387600C3ADCF /* LaunchScreen.storyboard */,
@@ -130,6 +164,57 @@
 				302E42CE20E6387600C3ADCF /* Info.plist */,
 			);
 			path = FJFKeyboardHelperDemoUITests;
+			sourceTree = "<group>";
+		};
+		302E42DA20E6388F00C3ADCF /* FJFKeyboardHelper */ = {
+			isa = PBXGroup;
+			children = (
+				302E42DB20E6388F00C3ADCF /* FJFKeyboardHelper.h */,
+				302E42DC20E6388F00C3ADCF /* FJFKeyboardHelper.m */,
+				302E42DF20E6388F00C3ADCF /* UIView+FJFKeyboardHelper.h */,
+				302E42E020E6388F00C3ADCF /* UIView+FJFKeyboardHelper.m */,
+				302E42DD20E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.h */,
+				302E42DE20E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.m */,
+				302E42E120E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.h */,
+				302E42E220E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m */,
+			);
+			path = FJFKeyboardHelper;
+			sourceTree = "<group>";
+		};
+		302E42E720E6389C00C3ADCF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				302E42E820E6389C00C3ADCF /* UITableView+Creation.h */,
+				302E42E920E6389C00C3ADCF /* UITableView+Creation.m */,
+				302E42EA20E6389C00C3ADCF /* UITableViewCell+Creation.h */,
+				302E42EB20E6389C00C3ADCF /* UITableViewCell+Creation.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		302E42FC20E6395500C3ADCF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				302E42AB20E6387500C3ADCF /* ViewController.h */,
+				302E42AC20E6387500C3ADCF /* ViewController.m */,
+				302E42EE20E638A900C3ADCF /* FJFirstViewController.h */,
+				302E42F220E638AA00C3ADCF /* FJFirstViewController.m */,
+				302E42F320E638AA00C3ADCF /* FJSecondViewController.h */,
+				302E42F020E638A900C3ADCF /* FJSecondViewController.m */,
+				302E42F420E638AA00C3ADCF /* FJThreeViewController.h */,
+				302E42F620E638AA00C3ADCF /* FJThreeViewController.m */,
+				302E42EF20E638A900C3ADCF /* FJThreeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		302E42FD20E6397000C3ADCF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				302E42F520E638AA00C3ADCF /* FJFTextfieldCell.h */,
+				302E42F120E638AA00C3ADCF /* FJFTextfieldCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				302E42B520E6387600C3ADCF /* LaunchScreen.storyboard in Resources */,
+				302E42F720E638AB00C3ADCF /* FJThreeViewController.xib in Resources */,
 				302E42B220E6387600C3ADCF /* Assets.xcassets in Resources */,
 				302E42B020E6387500C3ADCF /* Main.storyboard in Resources */,
 			);
@@ -262,9 +348,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302E42E620E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m in Sources */,
+				302E42E320E6388F00C3ADCF /* FJFKeyboardHelper.m in Sources */,
+				302E42FB20E638AB00C3ADCF /* FJThreeViewController.m in Sources */,
+				302E42EC20E6389C00C3ADCF /* UITableView+Creation.m in Sources */,
+				302E42E420E6388F00C3ADCF /* UIResponder+FJFKeyboardFirstResponder.m in Sources */,
 				302E42AD20E6387500C3ADCF /* ViewController.m in Sources */,
+				302E42E520E6388F00C3ADCF /* UIView+FJFKeyboardHelper.m in Sources */,
 				302E42B820E6387600C3ADCF /* main.m in Sources */,
+				302E42F920E638AB00C3ADCF /* FJFTextfieldCell.m in Sources */,
 				302E42AA20E6387500C3ADCF /* AppDelegate.m in Sources */,
+				302E42FA20E638AB00C3ADCF /* FJFirstViewController.m in Sources */,
+				302E42F820E638AB00C3ADCF /* FJSecondViewController.m in Sources */,
+				302E42ED20E6389C00C3ADCF /* UITableViewCell+Creation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

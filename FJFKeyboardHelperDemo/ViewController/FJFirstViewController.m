@@ -8,7 +8,7 @@
 //
 
 // tool
-#import "MOAKeyboardHelper.h"
+#import "FJFKeyboardHelper.h"
 // vc
 #import "FJFirstViewController.h"
 
@@ -25,17 +25,16 @@
 
 #pragma mark -------------------------- Response  Event
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)tapGesture:(UITapGestureRecognizer *)recognizer {
     [self.view endEditing:YES];
 }
-
 
 #pragma mark -------------------------- Private Methods
 - (void)setupViewControls {
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // 键盘 管理
-    [MOAKeyboardHelper handleKeyboardWithContainerView:self.view];
+    [FJFKeyboardHelper handleKeyboardWithContainerView:self.view];
 }
 
 
@@ -45,6 +44,9 @@
     NSInteger containerViewCount = (NSInteger)(self.view.bounds.size.height / containerViewHeight);
     for (NSInteger tmpIndex = 0; tmpIndex < containerViewCount; tmpIndex++) {
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, tmpIndex * containerViewHeight, containerViewWidth, containerViewHeight)];
+        containerView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+        [containerView addGestureRecognizer:tapGesture];
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(15, 35, containerViewWidth - 30, 40)];
         textField.borderStyle = UITextBorderStyleLine;
         textField.placeholder = @"请输入提示信息";

@@ -8,10 +8,10 @@
 
 #import <objc/runtime.h>
 #import "FJFKeyboardHelper.h"
-#import "UIView+KeyboardHelper.h"
+#import "UIView+FJFKeyboardHelper.h"
 
 @implementation UIView (FJFKeyboardHelper)
-- (void)moa_setkeyboardHelper:(FJFKeyboardHelper *)keyboardHelper {
+- (void)fjf_setkeyboardHelper:(FJFKeyboardHelper *)keyboardHelper {
     objc_setAssociatedObject(self, &keyboardHelper, keyboardHelper, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

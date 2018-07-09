@@ -1,5 +1,5 @@
 //
-//  UIResponder+FirstResponder.h
+//  UIResponder+FJFKeyboardFirstResponder.h
 //  MOAKeyboardHelper
 //
 //  Created by fjf on 2018/6/25.
@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIResponder (FJFKeyboardFirstResponder)
-+ (id)moa_currentFirstResponder;
++ (id)fjf_currentFirstResponder;
 @end

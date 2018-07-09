@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIResponder (FJFKeyboardFirstResponder)
-+ (id)fjf_currentFirstResponder;
++ (id)fjf_keyboardCurrentFirstResponder;
 @end

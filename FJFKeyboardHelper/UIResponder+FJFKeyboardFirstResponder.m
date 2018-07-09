@@ -11,7 +11,7 @@
 static __weak id currentFirstResponder;
 
 @implementation UIResponder (FJFKeyboardFirstResponder)
-+ (id)fjf_currentFirstResponder {
++ (id)fjf_keyboardCurrentFirstResponder {
     currentFirstResponder = nil;
     [[UIApplication sharedApplication] sendAction:@selector(fjf_findFirstResponder:) to:nil from:nil forEvent:nil];
     return currentFirstResponder;

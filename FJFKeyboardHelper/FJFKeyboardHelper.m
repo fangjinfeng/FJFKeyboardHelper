@@ -124,7 +124,7 @@
             }
             // 无回调
             else {
-                UIView *tmpView = [UIResponder fjf_currentFirstResponder];
+                UIView *tmpView = [UIResponder fjf_keyboardCurrentFirstResponder];
                 if ([tmpView isKindOfClass:[UIView class]]) {
                     UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
                     CGRect rect = [tmpView convertRect:tmpView.bounds toView:window];

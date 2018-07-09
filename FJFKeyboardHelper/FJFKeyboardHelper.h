@@ -10,8 +10,17 @@
 
 typedef void (^MOAKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiInfo, CGRect keyBoardRect);
 
+
 // 键盘 管理
 @interface FJFKeyboardHelper : NSObject
+
+/**
+ 处理 containerView 键盘 遮挡
+ 
+ @param containerView 需要移动的视图
+ */
++ (void)handleKeyboardWithContainerView:(UIView *)containerView;
+
 
 /**
  处理 scrollView 键盘 遮挡(列表型)
@@ -20,12 +29,6 @@ typedef void (^MOAKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiI
  */
 + (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView;
 
-/**
- 处理 containerView 键盘 遮挡
- 
- @param containerView 移动的视图
- */
-+ (void)handleKeyboardWithContainerView:(UIView *)containerView;
 
 /**
  处理 键盘

@@ -44,12 +44,11 @@
 
 #pragma mark -------------------------- Public Methods
 
-+ (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock {
++ (void)handleKeyboardWithContainerView:(UIView *)containerView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
-    [helper handleKeyboardWithShowBlock:showBlock hideBlock:hideBlock];
+    [helper handleKeyboardWithContainerView:containerView];
     [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
 }
-
 
 + (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
@@ -58,9 +57,9 @@
 }
 
 
-+ (void)handleKeyboardWithContainerView:(UIView *)containerView {
++ (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
-    [helper handleKeyboardWithContainerView:containerView];
+    [helper handleKeyboardWithShowBlock:showBlock hideBlock:hideBlock];
     [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
 }
 

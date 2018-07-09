@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.author       = { 'fangjinfeng' => '116418179@qq.com' }
   s.platform     = :ios, '8.0'
   s.ios.deployment_target = '8.0'
-  s.source       = { :git => "https://github.com/fangjinfeng/FJFKeyboardHelper", :tag => "0.0.1" }
-  s.source_files = "FJFKeyboardHelper/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/fangjinfeng/FJFKeyboardHelper.git", :tag => "0.0.1" }
+  s.source_files = "FJFKeyboardHelper/*.{h,m}"
   s.requires_arc = true
   s.framework  = 'UIKit'
 end

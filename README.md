@@ -1,5 +1,7 @@
 # FJFKeyboardHelper
 
+### 简书链接:[iOS 键盘管理器:FJFKeyboardHelper](https://www.jianshu.com/p/34b50c7a111f)
+
 # 一. 前言
 我们项目中很经常会碰到`输入框`和`键盘`的遮挡问题，写多了我们会发现，`不同视图和场景下`的`处理逻辑大同小异`，都是先注册`监听`键盘的`弹起`和`隐藏`事件，然后在`弹起`和`隐藏`的时候做处理，之后再`移除键盘`的`相关监听`，因此你会发现，`重复性代码`挺多；虽然现在已经有了`IQKeyboardManager`这样优秀的第三方来管理，但有时候又会觉得`IQKeyboardManager`过于`重量级`，功能过于`庞大`，你可能不想引入这么`庞大`的`第三方`，出于这个原因我自己写了一个`键盘管理`的`辅助类`，来处理`键盘`和`输入框`的`遮挡`事件，`核心代码`就`一百多行`，`处理`只需要`一句话`就可以解决。
 
@@ -31,14 +33,17 @@
 + (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock;
 ```
 - **集成方法:**
+
 ```
 静态：手动将FJFKeyboardHelper文件夹拖入到工程中。
 动态：CocoaPods：pod 'FJFKeyboardHelper'
 ```
+
 - **`github 链接`**
 > **Demo地址: https://github.com/fangjinfeng/FJFKeyboardHelper**
 
 - **效果展示:**
+
 ![FJFKeyboardHelper.gif](https://upload-images.jianshu.io/upload_images/2252551-c21929961c9f0199.gif?imageMogr2/auto-orient/strip)
 
 # 三. 原理分析
@@ -81,20 +86,20 @@ FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
 - 接着看`FJFKeyboardHelper`的初始化方法`init`,
 ```
 - (instancetype)init {
-if (self = [super init]) {
+    if (self = [super init]) {
 
-_oldContainerViewFrame = CGRectZero;
+        _oldContainerViewFrame = CGRectZero;
 
-[self addKeyboardNotiObserver];
-}
+        [self addKeyboardNotiObserver];
+    }
 return self;
 }
 ```
 在`init`方法这里将`oldContainerViewFrame`初始化为`CGRectZero`，同时注册`键盘弹起`和`隐藏`的`通知事件`。
 ```
 - (void)addKeyboardNotiObserver {
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 ```
@@ -102,11 +107,11 @@ return self;
 - 接着看`helper`调用的实例方法`handleKeyboardWithContainerView`
 ```
 - (void)handleKeyboardWithContainerView:(UIView *)containerView {
-if ([containerView isKindOfClass:[UIView class]]) {
-_containerView = containerView;
-}
+    if ([containerView isKindOfClass:[UIView class]]) {
+        _containerView = containerView;
+    }
 
-NSAssert([containerView isKindOfClass:[UIView class]], @"containerView 必现是 UIView类型");
+    NSAssert([containerView isKindOfClass:[UIView class]], @"containerView 必现是 UIView类型");
 }
 ```
 这里只是进行`简单的赋值`和`断言操作`，判断当前`containerView`是否为`UIView`类型。
@@ -115,62 +120,63 @@ NSAssert([containerView isKindOfClass:[UIView class]], @"containerView 必现是
 ```
 //  键盘 显示
 - (void)keyBoardWillShow:(NSNotification *)noti {
-if ([noti.name isEqualToString:UIKeyboardWillShowNotification]) {
+    if ([noti.name isEqualToString:UIKeyboardWillShowNotification]) {
 
-NSDictionary *keyBordInfo = [noti userInfo];
+        NSDictionary *keyBordInfo = [noti userInfo];
 
-NSValue *value = [keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+        NSValue *value = [keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
 
-CGRect keyBoardRect = [value CGRectValue];
+        CGRect keyBoardRect = [value CGRectValue];
 
-CGRect beginRect = [[keyBordInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+        CGRect beginRect = [[keyBordInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 
-CGRect endRect = [[keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGRect endRect = [[keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
 
-if (CGRectEqualToRect(_oldContainerViewFrame, CGRectZero)) {
-_oldContainerViewFrame = _containerView.frame;
-}
+        if (CGRectEqualToRect(_oldContainerViewFrame, CGRectZero)) {
+            _oldContainerViewFrame = _containerView.frame;
+        }
 
-// 第三方键盘回调三次问题，监听仅执行最后一次
-if(beginRect.size.height > 0 && (beginRect.origin.y - endRect.origin.y > 0)){
+            // 第三方键盘回调三次问题，监听仅执行最后一次
+            if(beginRect.size.height > 0 && (beginRect.origin.y - endRect.origin.y > 0)){
 
-// 有回调
-if (self.keyboardShowBlock) {
-self.keyboardShowBlock(noti.name, noti.userInfo, keyBoardRect);
-}
-// 无回调
-else {
-UIView *tmpView = [UIResponder fjf_keyboardCurrentFirstResponder];
-if ([tmpView isKindOfClass:[UIView class]]) {
-UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
-CGRect rect = [tmpView convertRect:tmpView.bounds toView:window];
-CGFloat viewBottomHeight =  [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(rect);
-if (viewBottomHeight < 0) {
-viewBottomHeight = 0;
-}
-CGFloat viewBottomOffset = keyBoardRect.size.height - viewBottomHeight;
-NSString *durationValue = [keyBordInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-if (viewBottomOffset > 0 ) {
+                // 有回调
+                if (self.keyboardShowBlock) {
+                    self.keyboardShowBlock(noti.name, noti.userInfo, keyBoardRect);
+                }
+                // 无回调
+                else {
+                    UIView *tmpView = [UIResponder fjf_keyboardCurrentFirstResponder];
+                    if ([tmpView isKindOfClass:[UIView class]]) {
+                        UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
+                        CGRect rect = [tmpView convertRect:tmpView.bounds toView:window];
+                        CGFloat viewBottomHeight =  [UIScreen mainScreen].bounds.size.height - CGRectGetMaxY(rect);
+                        if (viewBottomHeight < 0) {
+                            viewBottomHeight = 0;
+                        }
+                        CGFloat viewBottomOffset = keyBoardRect.size.height - viewBottomHeight;
+                        NSString *durationValue = [keyBordInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+                        if (viewBottomOffset > 0 ) {
 
-// 列表
-if (_scrollView) {
-CGFloat contentOffsetY = self.scrollView.contentOffset.y +  viewBottomOffset;
-[UIView animateWithDuration:durationValue.floatValue animations:^{
-self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
-}];
-}
-// 非列表
-else if(_containerView){
-CGFloat contentOffsetY = _oldContainerViewFrame.origin.y - viewBottomOffset;
-[UIView animateWithDuration:durationValue.floatValue animations:^{
-self.containerView.frame  = CGRectMake(self.oldContainerViewFrame.origin.x, contentOffsetY, self.oldContainerViewFrame.size.width, self.oldContainerViewFrame.size.height);
-}];
-}
-}
-}
-}
-}
-}
+                        // 列表
+                            if (_scrollView) {
+                                CGFloat contentOffsetY = self.scrollView.contentOffset.y +  viewBottomOffset;
+                                [UIView animateWithDuration:durationValue.floatValue animations:^{
+                                self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
+                                }];
+                            }
+                        // 非列表
+                        else if(_containerView){
+                            CGFloat contentOffsetY = _oldContainerViewFrame.origin.y - viewBottomOffset;
+                            [UIView animateWithDuration:durationValue.floatValue animations:^{
+                                self.containerView.frame  = CGRectMake(self.oldContainerViewFrame.origin.x, contentOffsetY, self.oldContainerViewFrame.size.width, self.oldContainerViewFrame.size.height);
+                            }];
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
 }
 ```
 **在键盘即将显示的回调函数里面:**
@@ -189,28 +195,28 @@ d. 接着判断`当前需要移动的视图`是否为`scrollView`类型，如果
 ```
 // 键盘 隐藏
 - (void)keyBoardWillHide:(NSNotification *)noti {
-if ([noti.name isEqualToString:UIKeyboardWillHideNotification]) {
-NSDictionary *keyBordInfo = [noti userInfo];
+    if ([noti.name isEqualToString:UIKeyboardWillHideNotification]) {
+        NSDictionary *keyBordInfo = [noti userInfo];
 
-NSValue *value = [keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+        NSValue *value = [keyBordInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
 
-CGRect keyBoardRect = [value CGRectValue];
-// 有回调
-if (self.keyboardHideBlock) {
-self.keyboardHideBlock(noti.name, noti.userInfo, keyBoardRect);
-}
-// 无回调
-else {
-// 非列表
-NSString *durationValue = [keyBordInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-if(_containerView){
-[UIView animateWithDuration:durationValue.floatValue animations:^{
-self.containerView.frame  = self.oldContainerViewFrame;
-self.oldContainerViewFrame = CGRectZero;
-}];
-}
-}
-}
+        CGRect keyBoardRect = [value CGRectValue];
+        // 有回调
+        if (self.keyboardHideBlock) {
+            self.keyboardHideBlock(noti.name, noti.userInfo, keyBoardRect);
+        }
+        // 无回调
+        else {
+            // 非列表
+            NSString *durationValue = [keyBordInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+            if(_containerView){
+                [UIView animateWithDuration:durationValue.floatValue animations:^{
+                    self.containerView.frame  = self.oldContainerViewFrame;
+                    self.oldContainerViewFrame = CGRectZero;
+                }];
+            }
+        }
+    }
 }
 ```
 

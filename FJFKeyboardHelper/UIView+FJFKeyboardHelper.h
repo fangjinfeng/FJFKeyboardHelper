@@ -10,5 +10,12 @@
 
 @class FJFKeyboardHelper;
 @interface UIView (FJFKeyboardHelper)
-- (void)fjf_setkeyboardHelper:(FJFKeyboardHelper *)keyboardHelper;
+// 移除 键盘 管理器
+- (void)fjf_removeKeyboardHelper;
+
+// 获取 键盘 管理器
+- (FJFKeyboardHelper *)fjf_getKeyboardHelper;
+
+// 关联 键盘 管理器
+- (void)fjf_setKeyboardHelper:(FJFKeyboardHelper *)keyboardHelper;
 @end

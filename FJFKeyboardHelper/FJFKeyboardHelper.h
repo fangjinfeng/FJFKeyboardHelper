@@ -8,11 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^MOAKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiInfo, CGRect keyBoardRect);
+typedef void (^FJFKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiInfo, CGRect keyBoardRect);
 
 
 // 键盘 管理
 @interface FJFKeyboardHelper : NSObject
+
+
+
+/**
+ 移除 键盘 管理器
+ */
++ (void)removeKeyboardHelper;
+
+/**
+ 更新 键盘 和 响应者 间距
+
+ @param spacing 键盘 和 响应者 间距(默认0.5)
+ */
++ (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing;
 
 /**
  处理 containerView 键盘 遮挡
@@ -36,7 +50,7 @@ typedef void (^MOAKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiI
  @param showBlock 显示 回调
  @param hideBlock 隐藏 回调
  */
-+ (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock;
++ (void)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock;
 
 
 @end

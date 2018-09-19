@@ -12,6 +12,8 @@
 #import "UIResponder+FJFKeyboardFirstResponder.h"
 #import "UIViewController+FJFKeyboardCurrentViewController.h"
 
+static CGFloat kContentOffsetPaddingY = 5.0f;
+
 @interface FJFKeyboardHelper()
 // containerView
 @property (nonatomic, weak) UIView *containerView;
@@ -19,24 +21,29 @@
 @property (nonatomic, weak) UIScrollView *scrollView;
 // oldContainerViewFrame
 @property (nonatomic, assign) CGRect oldContainerViewFrame;
+// contentOffsetPaddingY
+@property (nonatomic, assign) CGFloat  contentOffsetPaddingY;
+// currentContainerViewFrame
+@property (nonatomic, assign) CGRect  currentContainerViewFrame;
 // keyboardShowBlock
-@property (nonatomic, copy) MOAKeyboardManagerBlock keyboardShowBlock;
+@property (nonatomic, copy) FJFKeyboardManagerBlock keyboardShowBlock;
 // keyboardHideBlock
-@property (nonatomic, copy) MOAKeyboardManagerBlock keyboardHideBlock;
+@property (nonatomic, copy) FJFKeyboardManagerBlock keyboardHideBlock;
 @end
 
 @implementation FJFKeyboardHelper
 
 #pragma mark -------------------------- Life Circle
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeKeyboardNotiObserver];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
         
         _oldContainerViewFrame = CGRectZero;
-        
+        _currentContainerViewFrame = CGRectZero;
+        _contentOffsetPaddingY = kContentOffsetPaddingY;
         [self addKeyboardNotiObserver];
     }
     return self;
@@ -44,23 +51,41 @@
 
 #pragma mark -------------------------- Public Methods
 
+// 移除 键盘 管理器
++ (void)removeKeyboardHelper {
+    UIView *currentBindView = [UIViewController fjf_keyboardCurrentViewController].view;
+    FJFKeyboardHelper *helper = [currentBindView fjf_getKeyboardHelper];
+    if (helper) {
+        [currentBindView fjf_removeKeyboardHelper];
+    }
+}
+
+// 更新 键盘 和 响应者 间距
++ (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing {
+    UIView *currentBindView = [UIViewController fjf_keyboardCurrentViewController].view;
+    FJFKeyboardHelper *helper = [currentBindView fjf_getKeyboardHelper];
+    if (helper) {
+        helper.contentOffsetPaddingY = spacing;
+    }
+}
+
 + (void)handleKeyboardWithContainerView:(UIView *)containerView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithContainerView:containerView];
-    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
 }
 
 + (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithScrollView:scrollView];
-    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
 }
 
 
-+ (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock {
++ (void)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithShowBlock:showBlock hideBlock:hideBlock];
-    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setkeyboardHelper:helper];
+    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
 }
 
 #pragma mark -------------------------- Private Methods
@@ -70,8 +95,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+// 移除 键盘 通知 监听
+- (void)removeKeyboardNotiObserver {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
-- (void)handleKeyboardWithShowBlock:(MOAKeyboardManagerBlock)showBlock hideBlock:(MOAKeyboardManagerBlock)hideBlock {
+- (void)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock {
     _keyboardShowBlock = [showBlock copy];
     _keyboardHideBlock = [hideBlock copy];
 }
@@ -113,6 +142,7 @@
         if (CGRectEqualToRect(_oldContainerViewFrame, CGRectZero)) {
             _oldContainerViewFrame = _containerView.frame;
         }
+         _currentContainerViewFrame = _containerView.frame;
         
         // 第三方键盘回调三次问题，监听仅执行最后一次
         if(beginRect.size.height > 0 && (beginRect.origin.y - endRect.origin.y > 0)){
@@ -137,16 +167,16 @@
                        
                         // 列表
                         if (_scrollView) {
-                            CGFloat contentOffsetY = self.scrollView.contentOffset.y +  viewBottomOffset;
+                            CGFloat contentOffsetY = self.scrollView.contentOffset.y +  viewBottomOffset + _contentOffsetPaddingY;
                             [UIView animateWithDuration:durationValue.floatValue animations:^{
                                 self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
                             }];
                         }
                         // 非列表
                         else if(_containerView){
-                            CGFloat contentOffsetY = _oldContainerViewFrame.origin.y - viewBottomOffset;
+                            CGFloat contentOffsetY = _currentContainerViewFrame.origin.y - viewBottomOffset - _contentOffsetPaddingY;
                             [UIView animateWithDuration:durationValue.floatValue animations:^{
-                                self.containerView.frame  = CGRectMake(self.oldContainerViewFrame.origin.x, contentOffsetY, self.oldContainerViewFrame.size.width, self.oldContainerViewFrame.size.height);
+                                self.containerView.frame  = CGRectMake(self.currentContainerViewFrame.origin.x, contentOffsetY, self.currentContainerViewFrame.size.width, self.currentContainerViewFrame.size.height);
                             }];
                         }
                     }

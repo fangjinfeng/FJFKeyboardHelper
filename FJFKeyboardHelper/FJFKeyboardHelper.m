@@ -25,10 +25,14 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
 @property (nonatomic, assign) CGFloat  contentOffsetPaddingY;
 // currentContainerViewFrame
 @property (nonatomic, assign) CGRect  currentContainerViewFrame;
+// associatedView
+@property (nonatomic, strong) UIView *associatedView;
 // keyboardShowBlock
 @property (nonatomic, copy) FJFKeyboardManagerBlock keyboardShowBlock;
 // keyboardHideBlock
 @property (nonatomic, copy) FJFKeyboardManagerBlock keyboardHideBlock;
+// tapGestureRecognizer
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @end
 
 @implementation FJFKeyboardHelper
@@ -40,7 +44,7 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+        _responseTapGesture = YES;
         _oldContainerViewFrame = CGRectZero;
         _currentContainerViewFrame = CGRectZero;
         _contentOffsetPaddingY = kContentOffsetPaddingY;
@@ -52,40 +56,38 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
 #pragma mark -------------------------- Public Methods
 
 // 移除 键盘 管理器
-+ (void)removeKeyboardHelper {
-    UIView *currentBindView = [UIViewController fjf_keyboardCurrentViewController].view;
-    FJFKeyboardHelper *helper = [currentBindView fjf_getKeyboardHelper];
-    if (helper) {
-        [currentBindView fjf_removeKeyboardHelper];
-    }
+- (void)removeKeyboardHelper {
+    [self.associatedView fjf_removeKeyboardHelper];
 }
 
 // 更新 键盘 和 响应者 间距
-+ (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing {
-    UIView *currentBindView = [UIViewController fjf_keyboardCurrentViewController].view;
-    FJFKeyboardHelper *helper = [currentBindView fjf_getKeyboardHelper];
-    if (helper) {
-        helper.contentOffsetPaddingY = spacing;
-    }
+- (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing {
+    self.contentOffsetPaddingY = spacing;
 }
 
-+ (void)handleKeyboardWithContainerView:(UIView *)containerView {
++ (FJFKeyboardHelper *)handleKeyboardWithContainerView:(UIView *)containerView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithContainerView:containerView];
-    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
+    [containerView fjf_setKeyboardHelper:helper];
+    helper.associatedView = containerView;
+    return helper;
 }
 
-+ (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView {
++ (FJFKeyboardHelper *)handleKeyboardWithScrollView:(UIScrollView *)scrollView {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithScrollView:scrollView];
-    [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
+    [scrollView fjf_setKeyboardHelper:helper];
+    helper.associatedView = scrollView;
+    return helper;
 }
 
 
-+ (void)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock {
++ (FJFKeyboardHelper *)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock {
     FJFKeyboardHelper *helper = [[FJFKeyboardHelper alloc] init];
     [helper handleKeyboardWithShowBlock:showBlock hideBlock:hideBlock];
     [[UIViewController fjf_keyboardCurrentViewController].view fjf_setKeyboardHelper:helper];
+    helper.associatedView = [UIViewController fjf_keyboardCurrentViewController].view;
+    return helper;
 }
 
 #pragma mark -------------------------- Private Methods
@@ -145,7 +147,7 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
          _currentContainerViewFrame = _containerView.frame;
         
         // 第三方键盘回调三次问题，监听仅执行最后一次
-        if(beginRect.size.height > 0 && (beginRect.origin.y - endRect.origin.y > 0)){
+        if(endRect.size.height > 0 && (beginRect.origin.y - endRect.origin.y > 0)){
            
             // 有回调
             if (self.keyboardShowBlock) {
@@ -183,6 +185,7 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
                 }
             }
         }
+        [self addTapGustureRecognizer];
     }
 }
 
@@ -210,6 +213,64 @@ static CGFloat kContentOffsetPaddingY = 5.0f;
                 }];
             }
         }
+        [self removeTapGestureRecognizer];
     }
+}
+
+#pragma mark - Response Event
+- (void)endEdit {
+    [self.associatedView endEditing:YES];
+}
+
+
+#pragma mark - Private Methods
+- (void)addTapGustureRecognizer {
+    if (self.responseTapGesture) {
+        UIView *responseView = [FJFKeyboardHelper currentFirstResponder];
+        if ([FJFKeyboardHelper isTextEditViewWithResponseView:responseView]) {
+            UITextField *textField = (UITextField *)responseView;
+            if (textField.window) {
+               [textField.window addGestureRecognizer:self.tapGestureRecognizer];
+            }
+        }
+    }
+}
+
+// 移除 点击 手势
+- (void)removeTapGestureRecognizer {
+    if (self.responseTapGesture) {
+        UIView *responseView = [FJFKeyboardHelper currentFirstResponder];
+        if ([FJFKeyboardHelper isTextEditViewWithResponseView:responseView]) {
+           UITextField *textField = (UITextField *)responseView;
+           if (textField.window) {
+              [textField.window removeGestureRecognizer:self.tapGestureRecognizer];
+           }
+        }
+    }
+}
+
+#pragma mark - Setter / Getter
+
++ (BOOL)isTextEditViewWithResponseView:(UIView *)responseView {
+    if ([responseView isKindOfClass:[UITextField class]] ||
+        [responseView isKindOfClass:[UITextView class]]) {
+        return YES;
+    }
+    return NO;
+}
+
+
++ (UIView *)currentFirstResponder {
+    UIWindow *keyWindow = [UIApplication sharedApplication].delegate.window;
+    UIView *firstResponder = [keyWindow performSelector:@selector(firstResponder)];
+    return firstResponder;
+}
+
+
+- (UITapGestureRecognizer *)tapGestureRecognizer {
+    if (!_tapGestureRecognizer) {
+        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEdit)];
+    }
+    return _tapGestureRecognizer;
 }
 @end

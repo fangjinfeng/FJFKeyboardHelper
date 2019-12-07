@@ -12,7 +12,7 @@
 
 + (UIViewController *)fjf_keyboardCurrentViewController {
     // Find best view controller
-    UIViewController* viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController* viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     return [UIViewController fjf_findBestViewController:viewController];
 }
 

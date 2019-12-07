@@ -26,6 +26,7 @@
 		302E42F920E638AB00C3ADCF /* FJFTextfieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F120E638AA00C3ADCF /* FJFTextfieldCell.m */; };
 		302E42FA20E638AB00C3ADCF /* FJFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F220E638AA00C3ADCF /* FJFirstViewController.m */; };
 		302E42FB20E638AB00C3ADCF /* FJThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E42F620E638AA00C3ADCF /* FJThreeViewController.m */; };
+		64D228752272B1EC002ABEB1 /* FJFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D228742272B1EC002ABEB1 /* FJFourViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		302E42F420E638AA00C3ADCF /* FJThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJThreeViewController.h; sourceTree = "<group>"; };
 		302E42F520E638AA00C3ADCF /* FJFTextfieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJFTextfieldCell.h; sourceTree = "<group>"; };
 		302E42F620E638AA00C3ADCF /* FJThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJThreeViewController.m; sourceTree = "<group>"; };
+		64D228732272B1EC002ABEB1 /* FJFourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJFourViewController.h; sourceTree = "<group>"; };
+		64D228742272B1EC002ABEB1 /* FJFourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJFourViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				302E42F420E638AA00C3ADCF /* FJThreeViewController.h */,
 				302E42F620E638AA00C3ADCF /* FJThreeViewController.m */,
 				302E42EF20E638A900C3ADCF /* FJThreeViewController.xib */,
+				64D228732272B1EC002ABEB1 /* FJFourViewController.h */,
+				64D228742272B1EC002ABEB1 /* FJFourViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D228752272B1EC002ABEB1 /* FJFourViewController.m in Sources */,
 				302E42E620E6388F00C3ADCF /* UIViewController+FJFKeyboardCurrentViewController.m in Sources */,
 				302E42E320E6388F00C3ADCF /* FJFKeyboardHelper.m in Sources */,
 				302E42FB20E638AB00C3ADCF /* FJThreeViewController.m in Sources */,

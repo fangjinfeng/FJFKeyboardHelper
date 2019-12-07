@@ -33,7 +33,12 @@
 }
 
 - (void)layoutCellSubControls {
-    self.textField.frame = CGRectMake(12, 12, [UIScreen mainScreen].bounds.size.width - 24, [FJFTextfieldCell defaultCellHeight] - 24);
+    self.textField.frame = CGRectMake(12, 12, [UIScreen mainScreen].bounds.size.width - 24,  40);
+    
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(12, CGRectGetMaxY(self.textField.frame) + 5, self.textField.frame.size.width, self.textField.frame.size.height)];
+    textField.borderStyle = UITextBorderStyleLine;
+    textField.placeholder = @"请输入提示信息";
+    [self addSubview:textField];
 }
 
 #pragma mark -------------------------- Setter /  Getter

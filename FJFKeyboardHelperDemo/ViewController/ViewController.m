@@ -11,6 +11,7 @@
 #import "FJFirstViewController.h"
 #import "FJSecondViewController.h"
 #import "FJThreeViewController.h"
+#import "FJFourViewController.h"
 
 // category
 #import "UITableView+Creation.h"
@@ -73,8 +74,11 @@
     else if(indexPath.row == 1) {
         tmpVc = [[FJSecondViewController alloc] init];
     }
-    else {
+    else if(indexPath.row == 2){
         tmpVc = [[FJThreeViewController alloc] init];
+    }
+    else {
+        tmpVc = [[FJFourViewController alloc] init];
     }
 
     [self.navigationController pushViewController:tmpVc animated:YES];
@@ -107,7 +111,7 @@
 
 - (NSArray <NSString *>*)cellNameArray {
     if (!_cellNameArray) {
-        _cellNameArray = @[@"普通视图", @"tableViewCell", @"复杂视图"];
+        _cellNameArray = @[@"普通视图", @"tableViewCell", @"复杂视图", @"测试视图"];
     }
     return _cellNameArray;
 }

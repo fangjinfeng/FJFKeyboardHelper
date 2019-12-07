@@ -14,26 +14,27 @@ typedef void (^FJFKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiI
 // 键盘 管理
 @interface FJFKeyboardHelper : NSObject
 
-
+// responseTapGesture (默认为YES)
+@property (nonatomic, assign, getter=isResponseTapGesture) BOOL  responseTapGesture;
 
 /**
  移除 键盘 管理器
  */
-+ (void)removeKeyboardHelper;
+- (void)removeKeyboardHelper;
 
 /**
  更新 键盘 和 响应者 间距
 
  @param spacing 键盘 和 响应者 间距(默认0.5)
  */
-+ (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing;
+- (void)updateKeyboardTofirstResponderSpacing:(CGFloat)spacing;
 
 /**
  处理 containerView 键盘 遮挡
  
  @param containerView 需要移动的视图
  */
-+ (void)handleKeyboardWithContainerView:(UIView *)containerView;
++ (FJFKeyboardHelper *)handleKeyboardWithContainerView:(UIView *)containerView;
 
 
 /**
@@ -41,7 +42,7 @@ typedef void (^FJFKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiI
 
  @param scrollView scrollView
  */
-+ (void)handleKeyboardWithScrollView:(UIScrollView *)scrollView;
++ (FJFKeyboardHelper *)handleKeyboardWithScrollView:(UIScrollView *)scrollView;
 
 
 /**
@@ -50,7 +51,7 @@ typedef void (^FJFKeyboardManagerBlock) (NSString *notiName, NSDictionary *notiI
  @param showBlock 显示 回调
  @param hideBlock 隐藏 回调
  */
-+ (void)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock;
++ (FJFKeyboardHelper *)handleKeyboardWithShowBlock:(FJFKeyboardManagerBlock)showBlock hideBlock:(FJFKeyboardManagerBlock)hideBlock;
 
 
 @end
